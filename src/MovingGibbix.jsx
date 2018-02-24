@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import gibbixAlpha from './img/gibbix_alpha.png';
 
@@ -57,6 +56,7 @@ class MovingGibbix extends React.Component {
           console.log(gibbix);
           this.gibbix = gibbix;
         }}
+        alt="GibbiX"
       />
     );
   }
