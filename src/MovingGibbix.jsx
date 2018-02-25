@@ -13,14 +13,18 @@ class MovingGibbix extends React.Component {
       return Math.floor(Math.random() * max) - max / 2;
     };
 
-    this.leftSpeed = this.leftSpeed + getRandom(50);
-    this.topSpeed = this.topSpeed + getRandom(50);
+    this.leftSpeed = this.leftSpeed + getRandom(100);
+    this.topSpeed = this.topSpeed + getRandom(100);
 
     this.gibbix.style.top = this.gibbix.offsetTop + getRandom(50) + 'px';
     this.gibbix.style.left = this.gibbix.offsetLeft + getRandom(50) + 'px';
 
     this.rotation = this.rotation + getRandom(50);
     this.width = this.width + getRandom(50);
+
+    if (this.width < 50) {
+      this.width = this.width = 50;
+    }
 
     this.gibbix.style.transform = 'rotate(' + this.rotation + 'deg)';
     this.gibbix.style.width = this.width + 'px';
@@ -30,7 +34,7 @@ class MovingGibbix extends React.Component {
     this.gibbix.style.top = Math.floor(window.innerHeight / 2) - 200 + 'px';
     this.gibbix.style.left = Math.floor(window.innerWidth / 2) - 300 + 'px';
 
-    setInterval(this.performGibbixMove, 100);
+    setInterval(this.performGibbixMove, 1);
   }
 
   constructor(props) {
@@ -53,7 +57,6 @@ class MovingGibbix extends React.Component {
           transition: 'all 0.1s'
         }}
         ref={gibbix => {
-          console.log(gibbix);
           this.gibbix = gibbix;
         }}
         alt="GibbiX"
