@@ -6,6 +6,7 @@ import MovingGibbix from './MovingGibbix';
 import GibbixJump from './GibbixJump';
 
 import top from './img/top_edit.jpg';
+import infra from './img/infra.jpg';
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class App extends Component {
           }}
         >
           {this.state.gibbixes}
+          <img src={infra} alt="infrasturcture" />
           <div className="hidden-player">
             <YouTube
               videoId="K0tXhd7u56k"
