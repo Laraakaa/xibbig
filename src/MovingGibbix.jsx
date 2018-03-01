@@ -54,7 +54,8 @@ class MovingGibbix extends React.Component {
         src={gibbixAlpha}
         style={{
           position: 'absolute',
-          transition: 'all 0.1s'
+          transition: 'all 0.1s',
+          zIndex: 50
         }}
         ref={gibbix => {
           this.gibbix = gibbix;

@@ -14,8 +14,25 @@ class App extends Component {
 
     this.state = {
       gibbixes: [],
-      showJump: false
+      showJump: false,
+      infraX: 0,
+      infraStatus: true
     };
+
+    this.move = this.move.bind(this);
+  }
+
+  move() {
+    if (this.state.infraX > document.documentElement.offsetWidth - this.infra.clientWidth) {
+      this.setState({ infraStatus: false });
+    }
+    if (this.state.infraX <= 0) {
+      this.setState({ infraStatus: true });
+    }
+
+    this.setState({
+      infraX: this.state.infraStatus ? this.state.infraX + 5 : this.state.infraX - 5
+    })
   }
 
   componentDidMount() {
@@ -27,6 +44,8 @@ class App extends Component {
         gibbixes: [...this.state.gibbixes, <MovingGibbix key={Date.now()} />]
       });
     }, 1000);
+
+    setInterval(this.move, 1);
   }
 
   onPlay() {
@@ -51,7 +70,11 @@ class App extends Component {
           }}
         >
           {this.state.gibbixes}
-          <img src={infra} alt="infrasturcture" />
+          <img style={{
+            position: 'absolute',
+            left: this.state.infraX,
+            zIndex: 10
+          }} src={infra} alt="infrasturcture" ref={elem => { this.infra = elem; }} />
           <div className="hidden-player">
             <YouTube
               videoId="K0tXhd7u56k"
