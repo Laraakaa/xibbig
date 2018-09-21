@@ -1,6 +1,6 @@
 import React from 'react';
 
-import gibbixAlpha from './img/gibbix_alpha.png';
+import smartlearnAlpha from './img/smartlearn_alpha.png';
 
 class MovingGibbix extends React.Component {
   performGibbixMove() {
@@ -51,7 +51,7 @@ class MovingGibbix extends React.Component {
   render() {
     return (
       <img
-        src={gibbixAlpha}
+        src={smartlearnAlpha}
         style={{
           position: 'absolute',
           transition: 'all 0.1s',
